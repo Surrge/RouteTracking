@@ -26,5 +26,12 @@ namespace RouteTracking.Controllers
 
             return View();
         }
+
+        public ActionResult MapTesting(double? lat, double? lng)
+        {
+            return lat.HasValue && lng.HasValue
+                ? View(new Tuple<double, double>(lat.Value, lng.Value))
+                : View(new Tuple<double, double>(-34.397, 150.644));
+        }
     }
 }
